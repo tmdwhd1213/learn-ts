@@ -19,7 +19,47 @@ const superPrint: SuperPrint = (arr, b) => {
   return arr[0];
 };
 
-const a = superPrint([1, 2, 3, 4], "x");
+// 위의 normal function 버전
+function sPrint<T>(a: T[]) {
+  return a[0];
+}
+
+const a = superPrint<number, string>([1, 2, 3, 4], "x"); // 굳이 제네릭 안 써도됨. TS한테 맡기자
 const b = superPrint([true, false, true, true], 1);
 const c = superPrint(["a", "b", "c"], false);
 const d = superPrint([1, "a", false, "e"], []);
+
+// 제네릭은 선언 시점이 아니라 생성 시점에 타입을 명시하여 하나의 타입만이 아닌
+// 다양한 타입을 사용할 수 있도록 하는 기법이다.
+
+type Player<E> = {
+  name: string;
+  extraInfo: E;
+};
+
+const nico: Player<{ favFood: string }> = {
+  name: "nico",
+  extraInfo: {
+    favFood: "kimchi",
+  },
+};
+
+type SJExtra = {
+  favFood: string;
+};
+
+type SJPlayer = Player<SJExtra>;
+
+const SJ: SJPlayer = {
+  name: "SJ",
+  extraInfo: {
+    favFood: "Goolbi",
+  },
+};
+
+const lynn: Player<null> = {
+  name: "lynn",
+  extraInfo: null,
+};
+
+const ly = <T>() => {};
