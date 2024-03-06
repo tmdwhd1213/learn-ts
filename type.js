@@ -1,41 +1,41 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var player = {
+const player = {
     name: "nico",
     age: 19,
 };
 if (player.age && player.age < 18) {
 }
-var playerO = {
+const playerO = {
     name: "Seung",
 };
-var a = "hello";
+let a = "hello";
 a = "bye";
-var b = false;
-var c = [1, "2", 3];
+let b = false;
+let c = [1, "2", 3];
 function playerMaker(name) {
     return {
         name: name,
         age: 2,
     };
 }
-var arrowPlayer = function (name) { return ({ name: name }); };
-var oh = playerMaker("na");
+const arrowPlayer = (name) => ({ name });
+const oh = playerMaker("na");
 console.log(oh.age);
-var se = arrowPlayer("qwe");
+const se = arrowPlayer("qwe");
 console.log(se.name);
 //se.name = 'es'; // Cannot assign to 'name' because it is a read-only property.
-var e = [1, 2, 3, 4];
+let e = [1, 2, 3, 4];
 //e.push(6);  // Property 'push' does not exist on type 'readonly number[]'.
-var boxer = ["nico", 1, true];
+const boxer = ["nico", 1, true];
 //boxer[0] = 1    // Type 'number' is not assignable to type 'string'.
 //boxer[0] = 'hi';    // Cannot assign to '0' because it is a read-only property.
-var x; // 말 그대로 변수인 것 같음. 조건문으로 typeof ~~이면 이러한 동작을 하게 해주세요.로 작성 가능함.
+let x; // 말 그대로 변수인 것 같음. 조건문으로 typeof ~~이면 이러한 동작을 하게 해주세요.로 작성 가능함.
 if (typeof x === "number") {
-    var y = x + 1;
+    let y = x + 1;
 }
 if (typeof x === "string") {
-    var y = x.toUpperCase();
+    let y = x.toUpperCase();
 }
 // void는 리턴이 없는 함수
 function hello() {
@@ -57,12 +57,12 @@ function never(name) {
 function add(a, b) {
     return a + b;
 }
-var add2 = function (a, b) {
+const add2 = (a, b) => {
     if (typeof b === "string")
         return a;
     return a + b;
 };
-var push = function (config) {
+const push = (config) => {
     if (typeof config === "string") {
         console.log(config);
     }
@@ -70,7 +70,7 @@ var push = function (config) {
         console.log(config.path, config.state);
     }
 };
-var diff = function (a, b, c) {
+const diff = (a, b, c) => {
     if (c)
         return a - b - c;
     return a - b;

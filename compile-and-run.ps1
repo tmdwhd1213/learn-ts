@@ -1,3 +1,4 @@
 param([string]$fileName)
-tsc $fileName
-node ($fileName -replace '\.ts$', '.js')
+$filePath = Resolve-Path $fileName
+tsc $filePath
+node ($filePath -replace '\.ts$', '.js')
