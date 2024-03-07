@@ -61,5 +61,3 @@ const lynn: Player<null> = {
   name: "lynn",
   extraInfo: null,
 };
-
-const ly = <T>() => {};
