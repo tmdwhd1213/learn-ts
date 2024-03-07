@@ -44,10 +44,15 @@ class Dictionary {
       return updateWord;
     }
   }
+
+  static test() {
+    console.log("static test");
+  }
 }
 
+// 외부에서 kimchi.def = 'xxxxx' 이렇게 바꾸지 못하게 하려면 readonly 키워드 이용
 class Word {
-  constructor(public term: string, public def: string) {}
+  constructor(public readonly term: string, public readonly def: string) {}
 
   print() {
     console.log(`term: ${this.term} & definition: ${this.def}`);
@@ -68,3 +73,5 @@ console.log(dic.update("asd", "asdas"));
 console.log(dic.update("asd", "아사다"));
 console.log(dic.delete("kimchi"));
 console.log(dic);
+
+Dictionary.test();

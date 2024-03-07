@@ -41,16 +41,17 @@ var Dictionary = /** @class */ (function () {
             return updateWord;
         }
     };
+    Dictionary.test = function () {
+        console.log("static test");
+    };
     return Dictionary;
 }());
+// 외부에서 kimchi.def = 'xxxxx' 이렇게 바꾸지 못하게 하려면 readonly 키워드 이용
 var Word = /** @class */ (function () {
     function Word(term, def) {
         this.term = term;
         this.def = def;
     }
-    // 단어의 정의 추가 메서드
-    // 단어의 정의 수정 메서드
-    // 단어 출력 메서드
     Word.prototype.print = function () {
         console.log("term: ".concat(this.term, " & definition: ").concat(this.def));
     };
@@ -67,3 +68,4 @@ console.log(dic.update("asd", "asdas"));
 console.log(dic.update("asd", "아사다"));
 console.log(dic.delete("kimchi"));
 console.log(dic);
+Dictionary.test();
