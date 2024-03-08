@@ -1,25 +1,25 @@
-var LocalStorage = /** @class */ (function () {
-    function LocalStorage() {
+"use strict";
+class LocalStorage {
+    constructor() {
         this.storage = {};
     }
-    LocalStorage.prototype.set = function (key, value) {
+    set(key, value) {
         this.storage[key] = value;
-    };
-    LocalStorage.prototype.remove = function (key) {
+    }
+    remove(key) {
         delete this.storage[key];
-    };
-    LocalStorage.prototype.get = function (key) {
+    }
+    get(key) {
         return this.storage[key];
-    };
-    LocalStorage.prototype.clear = function () {
+    }
+    clear() {
         this.storage = {};
-    };
-    return LocalStorage;
-}());
+    }
+}
 // 제네릭(타입변수)을 이렇게 보낼 수 있음. -> 클래스 -> 인터페이스
-var stringsStorage = new LocalStorage();
+const stringsStorage = new LocalStorage();
 stringsStorage.set("ket", "kit");
 console.log(stringsStorage.get("ket"));
-var booleansStorage = new LocalStorage();
+const booleansStorage = new LocalStorage();
 booleansStorage.set("xxx", false);
 console.log(booleansStorage.get("xxx"));
